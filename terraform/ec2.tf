@@ -51,7 +51,7 @@ resource "aws_security_group" "ec2_security_group" {
 resource "aws_instance" "ec2_instance" {
     key_name = aws_key_pair.ec2_key_pair.key_name
     security_groups = [aws_security_group.ec2_security_group.name]
-    instance_type = "t2.micro"
+    instance_type = "t2.large"
     ami = "ami-0f918f7e67a3323f0" #ubuntu 24.04 LTS
 
     root_block_device {
@@ -60,7 +60,7 @@ resource "aws_instance" "ec2_instance" {
     }
 
     tags = {
-      Name = "Terraform-EC2-Instance"
+      Name = "Jenkins-Master-EC2-Instance"
     }
     
 }
