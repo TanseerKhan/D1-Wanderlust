@@ -108,6 +108,18 @@ resource "aws_instance" "ec2_instance" {
         volume_type = "gp3"
     }
 
+# Provisioners to copy scripts onto the instance
+    provisioner "file" {
+        source = "./scripts/install-docker.sh"
+        destination = "home/ubuntu/install-docker.sh"
+      
+    }
+    provisioner "file" {
+        source = "./scripts/install-jenkins.sh"
+        destination = "home/ubuntu/install-jenkins.sh"
+
+    }
+
     tags = {
       Name = "Jenkins-Master-EC2-Instance"
     }
