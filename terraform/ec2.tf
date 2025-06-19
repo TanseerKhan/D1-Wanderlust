@@ -120,6 +120,13 @@ resource "aws_instance" "ec2_instance" {
 
     }
 
+# User data script to update the instance on launch
+    user_data = <<-EOF
+    #!/bin/bash
+    sudo apt-get update -y
+    echo "User data script ran" > /home/ubuntu/userdata.log
+    EOF
+
     tags = {
       Name = "Jenkins-Master-EC2-Instance"
     }
