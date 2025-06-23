@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e  # Exit on error
 
 # Install JDk 
 sudo apt install fontconfig openjdk-17-jre -y

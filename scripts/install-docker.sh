@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e  # Exit on error
 
 # Install Docker on Ubuntu
 sudo apt-get install docker.io docker-compose -y
