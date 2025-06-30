@@ -3,3 +3,4 @@ terraform/ssh-keypair
 terraform/ssh-keypair.pub
 terraform/*.tfstate
 terraform/*.tfstate.backup
+terraform/*.tfstate.lock.info
