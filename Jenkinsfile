@@ -3,7 +3,7 @@ pipeline {
     agent {label 'Node'}
     
     environment{
-        SONAR_HOME = tool "Sonar"
+        SONAR_HOME = tool "SonarQube"
     }
     
     parameters {
@@ -32,7 +32,7 @@ pipeline {
         stage('Git: Code Checkout') {
             steps {
                 script{
-                    code_checkout("https://github.com/LondheShubham153/Wanderlust-Mega-Project.git","main")
+                    code_checkout("https://github.com/TanseerKhan/D1-Wanderlust.git","main")
                 }
             }
         }
@@ -56,7 +56,7 @@ pipeline {
         stage("SonarQube: Code Analysis"){
             steps{
                 script{
-                    sonarqube_analysis("Sonar","wanderlust","wanderlust")
+                    sonarqube_analysis("SonarQube","D1-Wanderlust","D1-Wanderlust")
                 }
             }
         }
@@ -73,7 +73,7 @@ pipeline {
             parallel{
                 stage("Backend env setup"){
                     steps {
-                        script{
+                        script{ 
                             dir("Automations"){
                                 sh "bash updatebackendnew.sh"
                             }
